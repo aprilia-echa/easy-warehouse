@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Fitur from "./components/Fitur";
-import Produk from "./components/Produk";
+import Feature from "./components/Feature";
+import Product from "./components/Product";
 import About from "./components/About";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer"
@@ -12,8 +12,8 @@ export default function App() {
     <div className="min-h-screen font-sans antialiased">
       <Navbar />
       <Hero />
-      <Fitur />
-      <Produk />
+      <Feature />
+      <Product />
       <About />
       <FAQ />
       <Footer/>

@@ -157,7 +157,7 @@ function PricingCard({ plan }) {
       {/* Footer Link */}
       <div className="mt-4 text-center">
         <a
-          href="#"
+          href="#TableComparison"
           className={`
             text-xs font-medium underline underline-offset-2 text-red-500 hover:text-red-700
           `}

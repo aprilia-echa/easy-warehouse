@@ -208,9 +208,6 @@ const VerticalTimeline = () => {
           </div>
         </div>
       </section>
-
-      {/* CONTENT SECTION */}
-      <Content />
     </>
   );
 };

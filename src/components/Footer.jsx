@@ -7,15 +7,16 @@ import {
 export default function Footer() {
     return (
         <footer
-            id="kontak"
-            className="w-full bg-[#f5f5f5] pt-28 overflow-hidden">
+            id="footer"
+            className="w-full bg-[#f5f5f5] pt-28 overflow-hidden"
+        >
 
             {/* CTA BOX */}
             <div className="max-w-[1200px] mx-auto px-8 relative z-10">
-                <div className="bg-gradient-to-r from-red-600 to-red-900 rounded-[18px] px-[30px] py-[35px] flex items-center justify-between shadow-xl">
+                <div className="bg-gradient-to-r from-red-600 to-red-900 rounded-[18px] px-6 md:px-[30px] py-8 md:py-[35px] flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
 
                     {/* TEXT */}
-                    <h2 className="text-white uppercase font-bold text-[25px] max-w-[760px]">
+                    <h2 className="text-white uppercase font-bold text-[20px] md:text-[25px] max-w-[760px] text-center md:text-left">
                         TARGETKAN PERTUMBUHAN MAKSIMAL?
                         <br />
                         RAIH DENGAN FULFILLMENT CERDAS.
@@ -29,11 +30,11 @@ export default function Footer() {
             </div>
 
             {/* MAIN FOOTER */}
-            <div className="bg-[#ececec] mt-[-45px] pt-32 pb-12">
-                <div className="max-w-[1400px] mx-auto px-10">
+            <div className="bg-[#ececec] mt-[-45px] pt-24 md:pt-32 pb-12">
+                <div className="max-w-[1400px] mx-auto px-6 md:px-10">
 
                     {/* GRID */}
-                    <div className="grid grid-cols-[1.5fr_1fr_1fr_1fr] gap-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr] gap-10 lg:gap-20">
 
                         {/* LEFT SIDE */}
                         <div>
@@ -69,43 +70,53 @@ export default function Footer() {
                             </p>
 
                             {/* SOCIAL */}
-                            <div className="flex items-center gap-5 mt-10">
+                            <div className="flex items-center gap-4 md:gap-5 mt-10">
 
-                                <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
-                                    <Music2 size={20} className="text-[#555]" />
-                                </div>
+                                <a href="https://www.tiktok.com/@rapiertechnology?_r=1&_t=ZS-96rbOjRSmEz">
+                                    <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
+                                        <Music2 size={20} className="text-[#555]" />
+                                    </div>
+                                </a>
 
-                                <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
-                                    <Youtube size={20} className="text-[#555]" />
-                                </div>
+                                <a href="https://www.youtube.com/@RapierTechnology">
+                                    <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
+                                        <Youtube size={20} className="text-[#555]" />
+                                    </div>
+                                </a>
 
-                                <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
-                                    <Instagram size={20} className="text-[#555]" />
-                                </div>
+                                <a href="https://www.instagram.com/rapiertechnology?igsh=NzUxb2YyamZlbWdr">
+                                    <div className="w-[44px] h-[44px] rounded-[10px] bg-[#f7f7f7] flex items-center justify-center shadow-sm">
+                                        <Instagram size={20} className="text-[#555]" />
+                                    </div>
+                                </a>
 
                             </div>
 
                             {/* CONTACT */}
-                            <div className="flex gap-44 mt-24">
+                            <div className="flex flex-col md:flex-row gap-6 md:gap-20 mt-12 md:mt-24">
 
-                                <div className="flex items-center gap-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                                     <p className="text-[15px] text-[#666] whitespace-nowrap">
                                         Phone number
                                     </p>
 
-                                    <p className="text-[15px] font-medium text-[#222] whitespace-nowrap">
-                                        1-800-201-1019
-                                    </p>
+                                    <a href="https://web.whatsapp.com">
+                                        <p className="text-[15px] font-medium text-[#222] whitespace-nowrap">
+                                            1-800-201-1019
+                                        </p>
+                                    </a>
                                 </div>
 
-                                <div className="flex items-center gap-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                                     <p className="text-[15px] text-[#666] whitespace-nowrap">
                                         Email
                                     </p>
 
-                                    <p className="text-[15px] font-medium text-[#222] whitespace-nowrap">
-                                        RapierSupport@gmail.com
-                                    </p>
+                                    <a href="mailto:RapierSupport@gmail.com">
+                                        <p className="text-[15px] font-medium text-[#222] break-all">
+                                            RapierSupport@gmail.com
+                                        </p>
+                                    </a>
                                 </div>
 
                             </div>

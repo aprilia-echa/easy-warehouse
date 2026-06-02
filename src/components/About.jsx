@@ -6,19 +6,19 @@ import {
   FileCheck2,
   ChevronLeft,
   ChevronRight,
-  Check, 
+  Check,
 } from "lucide-react";
 
 
 const brands = [
-  "/logos/Samsung.png",
-  "/logos/Nvidia.png",
-  "/logos/sony.png",
-  "/logos/CocaCola.png",
-  "/logos/Nestle.png",
-  "/logos/amazon.png",
-  "/logos/prada.png",
-  "/logos/Victoria'sSecret.png",
+  { src: "/logos/Samsung.png", size: "h-6 md:h-8" },
+  { src: "/logos/Nvidia.png", size: "h-6 md:h-8" },
+  { src: "/logos/Sony.png", size: "h-6 md:h-8" },
+  { src: "/logos/CocaCola.png", size: "h-6 md:h-8" },
+  { src: "/logos/Nestle.png", size: "h-6 md:h-8" },
+  { src: "/logos/Amazon.png", size: "h-6 md:h-8" },
+  { src: "/logos/Prada.png", size: "h-8 md:h-12" },
+  { src: "/logos/Victoria'sSecret.png", size: "h-8 md:h-12" },
 ];
 
 const testimonials = [
@@ -58,25 +58,25 @@ function BrandSection() {
 
   const nextSlide = () => {
     if (currentIndex < testimonials.length - 3) {
-      setCurrentIndex(currentIndex + 1);
+      setCurrentIndex((prev) => prev + 1);
     }
   };
 
   const prevSlide = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      setCurrentIndex((prev) => prev - 1);
     }
   };
 
   return (
-    <section 
-    id="about"
-    className="w-full bg-gray-200 py-24 overflow-hidden">
+    <section
+      id="about"
+      className="w-full bg-gray-200 py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* HEADING */}
         <div className="text-center mb-14">
-          <h2 className="text-[48px] font-semibold text-[#4b4545] leading-tight">
+          <h2 className="text-[48px] md:text-[48px] font-semibold text-[#4b4545] leading-tight">
             Mengapa Brand Global Memilih
             <br />
             <span className="text-red-700 italic font-serifDisplay">
@@ -92,13 +92,13 @@ function BrandSection() {
 
         {/* MOVING BRAND */}
         <div className="overflow-hidden py-8 mb-14">
-          <div className="flex w-max animate-marquee items-center gap-20">
-            {[...brands, ...brands].map((logo, i) => (
+          <div className="flex w-max animate-marquee items-center gap-10 md:gap-20">
+            {[...brands, ...brands].map((brand, i) => (
               <img
                 key={i}
-                src={logo}
+                src={brand.src}
                 alt="brand"
-                className="h-8 w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                className={`${brand.size} w-auto object-contain opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300`}
               />
             ))}
           </div>
@@ -110,15 +110,15 @@ function BrandSection() {
           <div
             className="flex gap-6 transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${currentIndex * 33.7}%)`,
+              transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
             {testimonials.map((item, index) => (
               <div
                 key={index}
-                className="min-w-[32%] bg-white rounded-[16px] p-8 min-h-[260px] flex flex-col justify-between shadow-sm"
+                className="min-w-full bg-white rounded-[16px] p-6 md:p-8 min-h-[260px] flex flex-col justify-between shadow-sm"
               >
-                <p className="text-[14px] text-[#555] leading-8 mb-8">
+                <p className="text-[13px] md:text-[14px] text-[#555] leading-7 md:leading-8 mb-8">
                   {item.text}
                 </p>
 
@@ -140,7 +140,7 @@ function BrandSection() {
 
             <button
               onClick={prevSlide}
-              disabled={currentIndex >= testimonials.length === 0}
+              disabled={currentIndex === 0}
               className="group w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200 hover:border-red-600 disabled:opacity-40"
             >
               <ChevronLeft
@@ -151,7 +151,7 @@ function BrandSection() {
 
             <button
               onClick={nextSlide}
-              disabled={currentIndex >= testimonials.length === 0}
+              disabled={currentIndex === testimonials.length - 3}
               className="group w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200 hover:border-red-600 disabled:opacity-40"
             >
               <ChevronRight
@@ -189,12 +189,15 @@ function BrandSection() {
 
 const TableComparison = () => {
   return (
-    <section className="w-full bg-gray-200 py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="TableComparison"
+      className="w-full bg-gray-200 py-24 px-6 md:px-10"
+    >
+      <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="text-[46px] font-semibold text-[#4f4a4a] leading-tight">
+          <h2 className="text-[30px] md:text-[40px] lg:text-[46px] font-semibold text-[#4f4a4a] leading-tight">
             Bandingkan Fitur Paket{" "}
             <span className="text-red-700 italic font-serifDisplay">
               WMS Pintar
@@ -204,7 +207,7 @@ const TableComparison = () => {
 
         {/* Table */}
         <div className="overflow-x-auto">
-          <table className="w-full border-separate border-spacing-y-5">
+          <table className="w-full min-w-[1000px] border-separate border-spacing-y-5">
 
             {/* Header */}
             <thead>
@@ -426,38 +429,38 @@ const TableComparison = () => {
               {/* Row 7 */}
               <tr className="bg-[#fafafa] shadow-sm">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Otomatisasi Restock
+                  Otomatisasi Restock
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Manual
+                  Manual
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Otomatis
+                  Otomatis
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Cerdas
+                  Cerdas
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Kustom
+                  Kustom
                 </td>
               </tr>
 
               {/* Row 8 */}
               <tr className="bg-transparent">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Dukungan Multi Gudang
+                  Dukungan Multi Gudang
                 </td>
 
                 <td className="text-center text-gray-300 text-2x1">
-                    —
+                  —
                 </td>
 
                 <td className="text-center text-gray-300 text 2x1">
-                    —
+                  —
                 </td>
 
                 <td className="rounded-r-md">
@@ -468,129 +471,129 @@ const TableComparison = () => {
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Unlimited
+                  Unlimited
                 </td>
               </tr>
 
               {/* Row 9 */}
               <tr className="bg-[#fafafa] shadow-sm">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Integrasi E-Commerce & 
-                    <br />
-                    POS
+                  Integrasi E-Commerce &
+                  <br />
+                  POS
                 </td>
 
                 <td className="text-center text-gray-300 text-2x1">
-                    —
+                  —
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
-                    className="mx-auto text-black" 
-                    />
+                    className="mx-auto text-black"
+                  />
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
-                    className="mx-auto text-black" 
-                    />
+                    className="mx-auto text-black"
+                  />
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
-                    className="mx-auto text-black" 
-                    />
+                    className="mx-auto text-black"
+                  />
                 </td>
               </tr>
 
               {/* Row 10 */}
               <tr className="bg-transparent">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Integrasi ERP (SAP/
-                    <br />
-                    Oracle)
+                  Integrasi ERP (SAP/
+                  <br />
+                  Oracle)
                 </td>
 
                 <td className="text-center text-gray-300 font-2x1">
-                    —
+                  —
                 </td>
 
                 <td className="text-center text-gray-300 font-2x1">
-                    —
+                  —
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check 
+                  <Check
                     size={18}
                     className="mx-auto text-black"
-                    />
+                  />
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
                     className="mx-auto text-black"
-                    />
+                  />
                 </td>
               </tr>
 
               <tr className="bg-white">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Custom Roles & 
-                    <br />
-                    Permissions
+                  Custom Roles &
+                  <br />
+                  Permissions
                 </td>
 
                 <td className="text-center text-gray-300 font-2x1">
-                    —
+                  —
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
                     className="mx-auto text-black"
-                    />
+                  />
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
                     className="mx-auto text-black"
-                    />
+                  />
                 </td>
 
                 <td className="rounded-r-md">
-                    <Check
+                  <Check
                     size={18}
                     className="mx-auto text-black"
-                    />
+                  />
                 </td>
               </tr>
 
               <tr className="bg-transparent">
                 <td className="px-8 py-8 text-[14px] font-semibold text-[#2f2f2f] leading-8">
-                    Dukungan Pelanggan 
-                    <br />
-                    (Support)
+                  Dukungan Pelanggan
+                  <br />
+                  (Support)
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Email 
+                  Email
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Chat/WA 
+                  Chat/WA
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Prioritas 
+                  Prioritas
                 </td>
 
                 <td className="text-center text-[13px] text-[#2f2f2f]">
-                    Dedicated Manager 
+                  Dedicated Manager
                 </td>
               </tr>
 
@@ -642,7 +645,7 @@ function About() {
           />
         </div>
       ),
-      
+
 
       title: "Regulasi Privasi Data",
       desc: "Sepenuhnya Mematuhi Regulasi Perlindungan Privasi Data Paling Ketat Di Dunia (GDPR & CCPA) Untuk Memastikan Hak Dan Kerahasiaan Informasi Pengguna Selalu Terjaga.",
@@ -650,15 +653,15 @@ function About() {
   ];
 
   return (
-    <section className="w-full bg-white py-24 px-6">
+    <section className="w-full bg-white py-24 px-4 md:px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* TOP SECTION */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center mb-24">
 
           {/* LEFT */}
           <div>
-            <h2 className="text-[37px] leading-[1.1] font-semibold text-[#4d4747] mb-6">
+            <h2 className="text-[28px] md:text-[37px] leading-[1.1] font-semibold text-[#4d4747] mb-6">
               Keamanan Tingkat Enterprise,
               <br />
               Tanpa Kompromi.
@@ -676,24 +679,25 @@ function About() {
             <img
               src="https://magentaldcc.com/wp-content/uploads/2021/11/warehouse_supervisor_job.jpg"
               alt="warehouse"
-              className="rounded-[24px] w-full max-w-[520px] h-[340px] object-cover"
+              className="rounded-[24px] w-full max-w-[520px] h-[340px] object-cover
+              rounded-[24px] w-full max-w-[520px] h-[250px] md:h-[340px] object-cover"
             />
           </div>
         </div>
 
         {/* BOTTOM CARDS */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
 
           {securityItems.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-200 rounded-[26px] px-8 py-10"
+              className="bg-gray-200 rounded-[26px] px-6 md:px-8 py-8 md:py-10"
             >
               <div className="mb-8 flex justify-center">
                 {item.icon}
               </div>
 
-              <h3 className="text-[28px] font-semibold text-[#2f2f2f] mb-4 leading-tight">
+              <h3 className="text-[22px] md:text-[28px] font-semibold text-[#2f2f2f] mb-4 leading-tight">
                 {item.title}
               </h3>
 
